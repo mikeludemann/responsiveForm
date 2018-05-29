@@ -1,0 +1,53 @@
+#feedback {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 0.5px solid #000;
+}
+
+#contact {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 0.5px solid #000;
+}
+
+#contact, #feedback, #contactForm, #feedbackForm {
+    background-color: #cccccc;
+    color: #fff;
+}
+
+#contactForm, #feedbackForm {
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+#feedbackForm {
+    display: none;
+}
+
+.title, #feedback, #contact {
+    padding: 10px 0px;
+}
+
+#feedback, #contact {
+    text-align: center;
+}
+
+.formContact, .formFeedback {
+    padding: 10px;
+}
+
+.row {
+    padding: 0px 10px;
+}
+
+footer {
+    position: fixed;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+}
