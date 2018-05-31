@@ -1,26 +1,28 @@
 #feedback {
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    border-right: 1px solid #000;
-    border-left: 0.5px solid #000;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-left: 0.5px solid #fff;
 }
 
 #contact {
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    border-left: 1px solid #000;
-    border-right: 0.5px solid #000;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 0.5px solid #fff;
 }
 
 #contact, #feedback, #contactForm, #feedbackForm {
-    background-color: #cccccc;
+    background-color: #dddddd;
     color: #fff;
 }
 
 #contactForm, #feedbackForm {
-    border-bottom: 1px solid #000;
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    padding-top: 10px;
+    padding-bottom: 50px;
 }
 
 #feedbackForm {
@@ -43,11 +45,71 @@
     padding: 0px 10px;
 }
 
+.forms {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.submit {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
 footer {
-    position: fixed;
+    position: relative;
     color: #fff;
     bottom: 0;
     left: 0;
     padding: 10px;
     width: 100%;
+}
+
+.label {
+    padding: 10px 0px;
+}
+
+#c_salutation, #f_salutation {
+    background: url('../../src/images/arrow-down.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 24px 24px;
+    background-color: #fff;
+}
+
+input, select, textarea {
+    border: 1px solid #fff;
+    padding: 5px;
+    border-radius: 0;
+}
+
+input, select, textarea {
+    width: 100%;
+    outline: none;
+}
+
+input, select, textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: 85%;
+}
+
+@media screen and (max-width: 767px) {
+
+    textarea {
+        resize: none;
+        width: 100%;
+        height: 95%;
+    }
+
+    .submit {
+        padding-top: 60px;
+        padding-bottom: 10px;
+    }
+
 }
