@@ -69,22 +69,25 @@ footer {
 }
 
 #c_salutation, #f_salutation {
-    background: url('../../src/images/arrow-down.png');
+    background: url("../../src/images/arrow-down.png");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 24px 24px;
     background-color: #fff;
 }
 
+.border_red {
+    border: 2px solid red;
+    transition: all 1s;
+}
+
 input, select, textarea {
     border: 1px solid #fff;
     padding: 5px;
     border-radius: 0;
-}
-
-input, select, textarea {
     width: 100%;
     outline: none;
+    transition: all 1s;
 }
 
 input, select, textarea {
@@ -100,7 +103,6 @@ textarea {
 }
 
 @media screen and (max-width: 767px) {
-
     textarea {
         resize: none;
         width: 100%;
@@ -111,5 +113,4 @@ textarea {
         padding-top: 60px;
         padding-bottom: 10px;
     }
-
 }

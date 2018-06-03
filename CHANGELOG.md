@@ -7,3 +7,8 @@ Status: Finish
 
 Save data and information of form values in database
 Status: TBD
+
+# Version 1.2 - Next steps
+
+Create a Web Bundler file
+Status: TBD
