@@ -3,6 +3,11 @@
 </div>
 <form id="formFeedback" name="feedback" action="feedback.php" method="post">
     <div class="row">
+        <div id="error_f" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 error_handling">
+            <div>
+                Please correct the marked fields. (*)
+            </div>
+        </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <div class="label">
                 <label for="f_salutation">Salution
@@ -10,7 +15,7 @@
                 </label>
             </div>
             <div>
-                <select id="f_salutation">
+                <select id="f_salutation" name="salutation">
                     <optgroup label="Salutation">
                         <option ng-repeat="x in salutation" value="{{x}}">{{x}}</option>
                     </optgroup>
@@ -56,7 +61,7 @@
     <div class="row submit">
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <div>
-                <input type="submit" value="Submit" class="btn btn-success">
+                <input type="submit" name="submit" value="Submit" class="btn btn-success">
             </div>
         </div>
     </div>
@@ -85,11 +90,14 @@
             regexpComments = /[a-zA-ZäÄöÖüÜ0-9\ \,\.]{1,255}/gim,
             result_comments = regexpComments.test(comments);
 
+        var error = document.getElementById("error_f");
+
         var submit = true;
 
         if (firstName == null || firstName == "") {
 
             document.getElementById("f_firstName").classList.add("border_red");
+            error.classList.add("error");
 
             submit = false;
 
@@ -98,6 +106,7 @@
         else if (firstName != null || firstName != "") {
 
             document.getElementById("f_firstName").classList.remove("border_red");
+            error.classList.remove("error");
 
             submit = false;
 
@@ -106,6 +115,7 @@
         if (lastName == null || lastName == "") {
 
             document.getElementById("f_lastName").classList.add("border_red");
+            error.classList.add("error");
 
             submit = false;
 
@@ -114,6 +124,7 @@
         else if (lastName != null || lastName != "") {
 
             document.getElementById("f_lastName").classList.remove("border_red");
+            error.classList.remove("error");
 
             submit = false;
 
@@ -123,6 +134,7 @@
         if (email == null || email == "") {
 
             document.getElementById("f_email").classList.add("border_red");
+            error.classList.add("error");
 
             submit = false;
 
@@ -132,6 +144,7 @@
         else if (email != null || email != "") {
 
             document.getElementById("f_email").classList.remove("border_red");
+            error.classList.remove("error");
 
             submit = false;
 
@@ -140,6 +153,7 @@
         if (comments == null || comments == "") {
 
             document.getElementById("f_comments").classList.add("border_red");
+            error.classList.add("error");
 
             submit = false;
 
@@ -148,6 +162,7 @@
         else if (comments != null || comments != "") {
 
             document.getElementById("f_comments").classList.remove("border_red");
+            error.classList.remove("error");
 
             submit = false;
 
@@ -156,12 +171,14 @@
         if (result_first_name == false) {
 
             document.getElementById("f_firstName").classList.add("border_red");
+            error.classList.add("error");
 
             submit = false;
 
         } else if (result_first_name == true) {
 
             document.getElementById("f_firstName").classList.remove("border_red");
+            error.classList.remove("error");
 
             //submit = false;
 
@@ -170,12 +187,14 @@
         if (result_last_name == false) {
 
             document.getElementById("f_lastName").classList.add("border_red");
+            error.classList.add("error");
 
             submit = false;
 
         } else if (result_last_name == true) {
 
             document.getElementById("f_lastName").classList.remove("border_red");
+            error.classList.remove("error");
 
             //submit = false;
 
@@ -184,12 +203,14 @@
         if (result_email == false) {
 
             document.getElementById("f_email").classList.add("border_red");
+            error.classList.add("error");
 
             submit = false;
 
         } else if (result_email == true) {
 
             document.getElementById("f_email").classList.remove("border_red");
+            error.classList.remove("error");
 
             //submit = false;
 
@@ -198,18 +219,22 @@
         if (result_comments == false) {
 
             document.getElementById("f_comments").classList.add("border_red");
+            error.classList.add("error");
 
             submit = false;
 
         } else if (result_comments == true) {
 
             document.getElementById("f_comments").classList.remove("border_red");
+            error.classList.remove("error");
 
             //submit = false;
 
         }
 
         if(result_first_name == true && result_last_name == true && result_email == true && result_comments == true){
+
+            error.classList.remove("error");
 
             submit = true;
             

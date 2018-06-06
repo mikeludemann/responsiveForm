@@ -3,12 +3,17 @@
 </div>
 <form id="formContact" name="contact" action="contact.php" method="post">
     <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div id="error_c" class="error_handling">
+                <span>Please correct the marked fields. (*)</span>
+            </div>
+        </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <div class="label">
                 <label for="c_salutation">Salution<sup> *</sup></label>
             </div>
             <div>
-                <select id="c_salutation">
+                <select id="c_salutation" name="salutation">
                     <optgroup label="Salutation">
                         <option ng-repeat="x in salutation" value="{{x}}">{{x}}</option>
                     </optgroup>
@@ -43,7 +48,7 @@
     <div class="row submit">
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <div>
-                <input type="submit" value="Submit" class="btn btn-success">
+                <input type="submit" name="submit" value="Submit" class="btn btn-success">
             </div>
         </div>
     </div>
@@ -72,11 +77,14 @@ document.getElementById("formContact").onsubmit = function () {
         regexpComments = /[a-zA-ZäÄöÖüÜ0-9\ \,\.\;\:\-\_\\\(\)\{\)\+\=\?\!\´\`\'\&amp;\/\|\§\$\€\@]{1,255}/gi,
         result_comments = regexpComments.test(comments);
 
+    var error = document.getElementById("error_c");
+
     var submit = true;
 
     if (firstName == null || firstName == "") {
         
         document.getElementById("c_firstName").classList.add("border_red");
+        error.classList.add("error");
         
         submit = false;
 
@@ -85,6 +93,7 @@ document.getElementById("formContact").onsubmit = function () {
     else if (firstName != null || firstName != "") {
         
         document.getElementById("c_firstName").classList.remove("border_red");
+        error.classList.remove("error");
         
         submit = false;
 
@@ -93,6 +102,7 @@ document.getElementById("formContact").onsubmit = function () {
     if (lastName == null || lastName == "") {
         
         document.getElementById("c_lastName").classList.add("border_red");
+        error.classList.add("error");
         
         submit = false;
 
@@ -101,6 +111,7 @@ document.getElementById("formContact").onsubmit = function () {
     else if (lastName != null || lastName != "") {
         
         document.getElementById("c_lastName").classList.remove("border_red");
+        error.classList.remove("error");
         
         submit = false;
 
@@ -110,6 +121,7 @@ document.getElementById("formContact").onsubmit = function () {
     if (email == null || email == "") {
 
         document.getElementById("c_email").classList.add("border_red");
+        error.classList.add("error");
 
         submit = false;
 
@@ -119,6 +131,7 @@ document.getElementById("formContact").onsubmit = function () {
     else if (email != null || email != "") {
 
         document.getElementById("c_email").classList.remove("border_red");
+        error.classList.remove("error");
 
         submit = false;
 
@@ -127,6 +140,7 @@ document.getElementById("formContact").onsubmit = function () {
     if (comments == null || comments == "") {
 
         document.getElementById("c_comments").classList.add("border_red");
+        error.classList.add("error");
 
         submit = false;
 
@@ -135,6 +149,7 @@ document.getElementById("formContact").onsubmit = function () {
     else if (comments != null || comments != "") {
 
         document.getElementById("c_comments").classList.remove("border_red");
+        error.classList.remove("error");
 
         submit = false;
 
@@ -143,12 +158,14 @@ document.getElementById("formContact").onsubmit = function () {
     if (result_first_name == false){
 
         document.getElementById("c_firstName").classList.add("border_red");
+        error.classList.add("error");
         
         submit = false;
 
     } else if (result_first_name == true) {
 
         document.getElementById("c_firstName").classList.remove("border_red");
+        error.classList.remove("error");
 
         //submit = false;
 
@@ -157,12 +174,14 @@ document.getElementById("formContact").onsubmit = function () {
     if (result_last_name == false){
 
         document.getElementById("c_lastName").classList.add("border_red");
+        error.classList.add("error");
         
         submit = false;
 
     } else if (result_last_name == true) {
 
         document.getElementById("c_lastName").classList.remove("border_red");
+        error.classList.remove("error");
 
         //submit = false;
 
@@ -171,12 +190,14 @@ document.getElementById("formContact").onsubmit = function () {
     if (result_email == false){
 
         document.getElementById("c_email").classList.add("border_red");
+        error.classList.add("error");
         
         submit = false;
 
     } else if (result_email == true) {
 
         document.getElementById("c_email").classList.remove("border_red");
+        error.classList.remove("error");
 
         //submit = false;
 
@@ -185,18 +206,22 @@ document.getElementById("formContact").onsubmit = function () {
     if (result_comments == false){
 
         document.getElementById("c_comments").classList.add("border_red");
+        error.classList.add("error");
         
         submit = false;
 
     } else if (result_comments == true) {
 
         document.getElementById("c_comments").classList.remove("border_red");
+        error.classList.remove("error");
 
         //submit = false;
 
     }
 
     if(result_first_name == true && result_last_name == true && result_email == true && result_comments == true){
+
+        error.classList.remove("error");
 
         submit = true;
         

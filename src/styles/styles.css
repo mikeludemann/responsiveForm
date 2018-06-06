@@ -64,6 +64,10 @@ footer {
     width: 100%;
 }
 
+.content {
+    padding: 10px 0px;
+}
+
 .label {
     padding: 10px 0px;
 }
@@ -77,8 +81,20 @@ footer {
 }
 
 .border_red {
-    border: 2px solid red;
+    border: 2px solid #f00;
     transition: all 1s;
+}
+
+.error_handling {
+    transition: all 1s;
+    opacity: 0.0;
+    font-size: 16px;
+}
+
+.error {
+    color: #f00;
+    transition: all 1s;
+    opacity: 1.0;
 }
 
 input, select, textarea {
