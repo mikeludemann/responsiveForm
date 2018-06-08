@@ -11,14 +11,27 @@ $connection = new mysqli($servername, $username, $password, $database);
 
 // Checking connection
 
+define("FAILED", "Connection failed");
+define("SUCCESS", "Connection successfull");
+
 if (!$connection) {
 
-    die("Connection failed - Error Number and Error Message: " . mysqli_connect_errno . " , " . mysqli_connect_error);
+    die(FAILED);
+    consoleLog(mysqli_errno);
+    consoleLog(mysqli_error);
 
-} /* else {
+} else {
 
-    echo "Connection successfull";
+    consoleLog(SUCCESS);
 
-} */
+}
+
+function consoleLog($data){
+
+    echo '<script>';
+    echo 'console.log('. $data .')';
+    echo '</script>';
+
+}
 
 ?>

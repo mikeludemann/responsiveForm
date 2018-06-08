@@ -93,6 +93,21 @@ if(isset($_POST["submit"])){
     echo '</body>
     </html>';
 
+    $sql = "INSERT INTO data (form, salutation, firstname, lastname, email, comments) VALUES ('Feedback', ''" . $salutation . "'', ''" . $firstName . "'', ''" . $lastName . "'', ''" . $email . "'', ''" . $comments . "'')";
+
+    if ($conn->query($sql) === TRUE) {
+
+        consoleLog("Created successfully a new entry");
+        
+    } else {
+
+        consoleLog("Error: ");
+        consoleLog($sql);
+        consoleLog("<br/>");
+        consoleLog($conn->error);
+
+    }
+
 } else {
 
     header("Location: /responsiveForm/");
