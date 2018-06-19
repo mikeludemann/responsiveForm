@@ -18,7 +18,7 @@ $message = "";
 $message .= '
 <html>
     <head>
-        <title>HTML email</title>
+        <title>Feedback</title>
     </head>
     <body>
         <div class="container-fluid">
